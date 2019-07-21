@@ -1,4 +1,4 @@
-package com.xyp.activemq;
+package com.xyp.activemq.queue.persist;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -28,13 +28,12 @@ public class ProducerTest {
 		
 		Queue queue=session.createQueue("msg-queue");
 		MessageProducer producer=session.createProducer(queue);
+		producer.setDeliveryMode(DeliveryMode.PERSISTENT); //设置持久化/非持久化
 		DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		for(int i=0;i<3;i++){
 			String now=format.format(new Date());
-			//Message message=new ActiveMQTextMessage();
 			Message message=session.createTextMessage("msg- "+i+" ,内容为 ：timestamp="+now);
-			message.setBooleanProperty("isVIP", false);
-			//producer.send
+			producer.send(message);
 		}
 		producer.close();
 		session.close();
