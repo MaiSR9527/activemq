@@ -30,7 +30,7 @@
 ![avatar](assert/datasource.png)
 
 ##集群：zookeeper+levelDB
-1. 先配置三台zookeepers集群，并启动。
+1. 先配置三台zookeepers集群，并启动。zookeeper集群搭建：参考[https://www.cnblogs.com/lameclimber/p/10807569.html](https://www.cnblogs.com/lameclimber/p/10807569.html "zookeeper集群搭建")
 **批处理**
 ![avatar](assert/batch.png)
 
